@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29728.190
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XenkoCodeTestBenchmarks", "XenkoCodeTestBenchmarks\XenkoCodeTestBenchmarks.csproj", "{002D5387-3587-44DB-A81F-E71DE7F59496}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{002D5387-3587-44DB-A81F-E71DE7F59496}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{002D5387-3587-44DB-A81F-E71DE7F59496}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{002D5387-3587-44DB-A81F-E71DE7F59496}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{002D5387-3587-44DB-A81F-E71DE7F59496}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {663AE803-A20E-4849-8305-638F74FA86FA}
+	EndGlobalSection
+EndGlobal
