@@ -1,4 +1,7 @@
-﻿using BenchmarkDotNet.Reports;
+﻿using BenchmarkDotNet.Configs;
+using BenchmarkDotNet.Environments;
+using BenchmarkDotNet.Jobs;
+using BenchmarkDotNet.Reports;
 using BenchmarkDotNet.Running;
 using System;
 using System.Collections.Generic;
@@ -10,13 +13,20 @@ namespace XenkoCodeTestBenchmarks
     {
         static void Main(string[] args)
         {
+            var config = DefaultConfig.Instance
+                          .With(Job.Default.With(ClrRuntime.Net461))
+                          .With(Job.Default.With(CoreRuntime.Core20))
+                          //.With(Job.Default.With(CoreRuntime.Core30))
+                          //.With(Job.Default.With(MonoRuntime.Default))
+                          ;
+
             var options = new List<(string code, string desc, Func<Summary[]> benchmark)>();
-            AddCodedOption("A", "[A]ll", () => BenchmarkRunner.Run(typeof(Program).Assembly));
-            AddOption("Matrix tests", () => BenchmarkRunner.Run<MatrixTests>());
-            AddOption("Canvas tests", () => BenchmarkRunner.Run<CanvasTests>());
-            AddOption("Color3Copy tests", () => BenchmarkRunner.Run<Color3CopyTests>());
-            AddOption("LightStreak tests", () => BenchmarkRunner.Run<LightStreakTests>());
-            AddOption("ModelNestedForLoopAccess tests", () => BenchmarkRunner.Run<ModelNestedForLoopAccessTests>());
+            AddCodedOption("A", "[A]ll", () => BenchmarkRunner.Run(typeof(Program).Assembly, config));
+            AddOption("Matrix tests", () => BenchmarkRunner.Run<MatrixTests>(config));
+            AddOption("Canvas tests", () => BenchmarkRunner.Run<CanvasTests>(config));
+            AddOption("Color3Copy tests", () => BenchmarkRunner.Run<Color3CopyTests>(config));
+            AddOption("LightStreak tests", () => BenchmarkRunner.Run<LightStreakTests>(config));
+            AddOption("ModelNestedForLoopAccess tests", () => BenchmarkRunner.Run<ModelNestedForLoopAccessTests>(config));
 
             bool isRunning = true;
             while (isRunning)
@@ -25,7 +35,7 @@ namespace XenkoCodeTestBenchmarks
                 Console.WriteLine(string.Join("\r\n", options.Select(x => x.desc)));
 
                 string userInput = Console.ReadLine();
-                var selectedOption = options.FirstOrDefault(x => x.code.Equals(userInput, StringComparison.OrdinalIgnoreCase));
+                var selectedOption = options.Find(x => x.code.Equals(userInput, StringComparison.OrdinalIgnoreCase));
                 if (selectedOption.benchmark == null)
                 {
                     Console.WriteLine($"Invalid command.");
