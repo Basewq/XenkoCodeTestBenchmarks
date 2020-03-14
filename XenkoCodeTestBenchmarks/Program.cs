@@ -24,7 +24,10 @@ namespace XenkoCodeTestBenchmarks
             AddCodedOption("A", "[A]ll", () => BenchmarkRunner.Run(typeof(Program).Assembly, config));
             AddOption("Matrix tests", () => BenchmarkRunner.Run<MatrixTests>(config));
             AddOption("Canvas tests", () => BenchmarkRunner.Run<CanvasTests>(config));
+            AddOption("Color3Constructor tests", () => BenchmarkRunner.Run<Color3ConstructorTests>(config));
             AddOption("Color3Copy tests", () => BenchmarkRunner.Run<Color3CopyTests>(config));
+            AddOption("Vector3Constructor tests", () => BenchmarkRunner.Run<Vector3ConstructorTests>(config));
+            AddOption("Vector4Constructor tests", () => BenchmarkRunner.Run<Vector4ConstructorTests>(config));
             AddOption("LightStreak tests", () => BenchmarkRunner.Run<LightStreakTests>(config));
             AddOption("ModelNestedForLoopAccess tests", () => BenchmarkRunner.Run<ModelNestedForLoopAccessTests>(config));
 
