@@ -31,6 +31,20 @@ namespace XenkoCodeTestBenchmarks
         }
 
         [Benchmark]
+        public float Color_Default()
+        {
+            float sum = 0;
+            for (int i = 0; i < data.Length - 1; i++)
+            {
+                // ----- Test
+                data[i] = default;
+                // ----- End Test
+                sum += data[i].R;
+            }
+            return sum;
+        }
+
+        [Benchmark]
         public float Color_ConstructorArgZero()
         {
             float sum = 0;
