@@ -29,7 +29,7 @@ namespace XenkoCodeTestBenchmarks
         public float DrawCore_InlineAttenuation()
         {
             float sum = 0;
-            for (int i = 0; i < data.Length - 1; i++)
+            for (int i = 0; i < data.Length; i++)
             {
                 var lightStreak = data[i];
                 // ----- Test
@@ -44,7 +44,7 @@ namespace XenkoCodeTestBenchmarks
         public float DrawCore_HoistAttenuation()
         {
             float sum = 0;
-            for (int i = 0; i < data.Length - 1; i++)
+            for (int i = 0; i < data.Length; i++)
             {
                 var lightStreak = data[i];
                 // ----- Test

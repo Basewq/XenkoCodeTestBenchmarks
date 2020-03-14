@@ -20,7 +20,7 @@ namespace XenkoCodeTestBenchmarks
         public float Color_EmptyConstructor()
         {
             float sum = 0;
-            for (int i = 0; i < data.Length - 1; i++)
+            for (int i = 0; i < data.Length; i++)
             {
                 // ----- Test
                 data[i] = new Color3();
@@ -34,7 +34,7 @@ namespace XenkoCodeTestBenchmarks
         public float Color_Default()
         {
             float sum = 0;
-            for (int i = 0; i < data.Length - 1; i++)
+            for (int i = 0; i < data.Length; i++)
             {
                 // ----- Test
                 data[i] = default;
@@ -48,7 +48,7 @@ namespace XenkoCodeTestBenchmarks
         public float Color_ConstructorArgZero()
         {
             float sum = 0;
-            for (int i = 0; i < data.Length - 1; i++)
+            for (int i = 0; i < data.Length; i++)
             {
                 // ----- Test
                 data[i] = new Color3(0f);
@@ -62,7 +62,7 @@ namespace XenkoCodeTestBenchmarks
         public float Color_Black()
         {
             float sum = 0;
-            for (int i = 0; i < data.Length - 1; i++)
+            for (int i = 0; i < data.Length; i++)
             {
                 // ----- Test
                 data[i] = ColorConst.Black;
@@ -76,7 +76,7 @@ namespace XenkoCodeTestBenchmarks
         public float Color_ConstructorArgOne()
         {
             float sum = 0;
-            for (int i = 0; i < data.Length - 1; i++)
+            for (int i = 0; i < data.Length; i++)
             {
                 // ----- Test
                 data[i] = new Color3(1f);
@@ -90,7 +90,7 @@ namespace XenkoCodeTestBenchmarks
         public float Color_White()
         {
             float sum = 0;
-            for (int i = 0; i < data.Length - 1; i++)
+            for (int i = 0; i < data.Length; i++)
             {
                 // ----- Test
                 data[i] = ColorConst.White;

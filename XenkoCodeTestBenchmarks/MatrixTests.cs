@@ -19,7 +19,7 @@ namespace XenkoCodeTestBenchmarks
         public float Invert_AssignThenInvert()
         {
             float sum = 0;
-            for (int i = 0; i < data.Length - 1; i++)
+            for (int i = 0; i < data.Length; i++)
             {
                 var matrixInvert = data[i];
                 // ----- Test
@@ -35,7 +35,7 @@ namespace XenkoCodeTestBenchmarks
         public float Invert_ByValAndReturn()
         {
             float sum = 0;
-            for (int i = 0; i < data.Length - 1; i++)
+            for (int i = 0; i < data.Length; i++)
             {
                 //var matrix = data[i];
                 // ----- Test
@@ -50,7 +50,7 @@ namespace XenkoCodeTestBenchmarks
         public float Invert_RefAndOut()
         {
             float sum = 0;
-            for (int i = 0; i < data.Length - 1; i++)
+            for (int i = 0; i < data.Length; i++)
             {
                 //var matrix = data[i];
                 // ----- Test
@@ -65,7 +65,7 @@ namespace XenkoCodeTestBenchmarks
         public float Orthogonalize_NoTempVariable()
         {
             float sum = 0;
-            for (int i = 0; i < data.Length - 1; i++)
+            for (int i = 0; i < data.Length; i++)
             {
                 var result = data[i];
                 // ----- Test
@@ -87,7 +87,7 @@ namespace XenkoCodeTestBenchmarks
         public float Orthogonalize_UseTempVariable()
         {
             float sum = 0;
-            for (int i = 0; i < data.Length - 1; i++)
+            for (int i = 0; i < data.Length; i++)
             {
                 var result = data[i];
                 // ----- Test

@@ -46,7 +46,7 @@ namespace XenkoCodeTestBenchmarks
         public float Update_HasNestedReferences()
         {
             float sum = 0;
-            for (int i = 0; i < data.Length - 1; i++)
+            for (int i = 0; i < data.Length; i++)
             {
                 var modelComp = data[i];
                 // ----- Test
@@ -61,7 +61,7 @@ namespace XenkoCodeTestBenchmarks
         public float Update_NoNestedReferences()
         {
             float sum = 0;
-            for (int i = 0; i < data.Length - 1; i++)
+            for (int i = 0; i < data.Length; i++)
             {
                 var modelComp = data[i];
                 // ----- Test
@@ -77,7 +77,7 @@ namespace XenkoCodeTestBenchmarks
         {
             // Same as Update_HasNestedReferences, but run again to prevent weird stalling on the first run
             float sum = 0;
-            for (int i = 0; i < data.Length - 1; i++)
+            for (int i = 0; i < data.Length; i++)
             {
                 var modelComp = data[i];
                 // ----- Test
@@ -93,7 +93,7 @@ namespace XenkoCodeTestBenchmarks
         {
             // Same as Update_NoNestedReferences, but run again to prevent weird stalling on the first run
             float sum = 0;
-            for (int i = 0; i < data.Length - 1; i++)
+            for (int i = 0; i < data.Length; i++)
             {
                 var modelComp = data[i];
                 // ----- Test
