@@ -30,6 +30,7 @@ namespace XenkoCodeTestBenchmarks
             AddOption("Vector4Constructor tests", () => BenchmarkRunner.Run<Vector4ConstructorTests>(config));
             AddOption("LightStreak tests", () => BenchmarkRunner.Run<LightStreakTests>(config));
             AddOption("ModelNestedForLoopAccess tests", () => BenchmarkRunner.Run<ModelNestedForLoopAccessTests>(config));
+            AddOption("PhysicsDebugShapeMaterial tests", () => BenchmarkRunner.Run<PhysicsDebugShapeMaterialTests>(config));
 
             bool isRunning = true;
             while (isRunning)
