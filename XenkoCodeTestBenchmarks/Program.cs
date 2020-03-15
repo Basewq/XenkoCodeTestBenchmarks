@@ -24,12 +24,22 @@ namespace XenkoCodeTestBenchmarks
             AddCodedOption("A", "[A]ll", () => BenchmarkRunner.Run(typeof(Program).Assembly, config));
             AddOption("Matrix tests", () => BenchmarkRunner.Run<MatrixTests>(config));
             AddOption("Canvas tests", () => BenchmarkRunner.Run<CanvasTests>(config));
+
             AddOption("Color3Constructor tests", () => BenchmarkRunner.Run<Color3ConstructorTests>(config));
             AddOption("Color3Copy tests", () => BenchmarkRunner.Run<Color3CopyTests>(config));
+
             AddOption("Vector3Constructor tests", () => BenchmarkRunner.Run<Vector3ConstructorTests>(config));
             AddOption("Vector4Constructor tests", () => BenchmarkRunner.Run<Vector4ConstructorTests>(config));
+
             AddOption("LightStreak tests", () => BenchmarkRunner.Run<LightStreakTests>(config));
             AddOption("ModelNestedForLoopAccess tests", () => BenchmarkRunner.Run<ModelNestedForLoopAccessTests>(config));
+
+            AddOption("LightGroupRendererBase tests", () => BenchmarkRunner.Run<LightGroupRendererBaseTest>(config));
+            AddOption("LightClusteredPointSpotGroupRenderer tests", () => BenchmarkRunner.Run<LightClusteredPointSpotGroupRendererTests>(config));
+            AddOption("Light_PointLightShaderGroupData tests", () => BenchmarkRunner.Run<LightClusteredPointSpotGroupRenderer_PointLightShaderGroupDataTests>(config));
+            AddOption("LightDirectionalGroupRenderer tests", () => BenchmarkRunner.Run<LightDirectionalGroupRendererTest>(config));
+
+            AddOption("StreamingManager tests", () => BenchmarkRunner.Run<StreamingManagerTests>(config));
             AddOption("PhysicsDebugShapeMaterial tests", () => BenchmarkRunner.Run<PhysicsDebugShapeMaterialTests>(config));
 
             bool isRunning = true;
