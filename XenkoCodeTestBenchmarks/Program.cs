@@ -41,6 +41,7 @@ namespace XenkoCodeTestBenchmarks
 
             AddOption("StreamingManager tests", () => BenchmarkRunner.Run<StreamingManagerTests>(config));
             AddOption("PhysicsDebugShapeMaterial tests", () => BenchmarkRunner.Run<PhysicsDebugShapeMaterialTests>(config));
+            AddOption("PipelineStateDirect3D tests", () => BenchmarkRunner.Run<PipelineStateDirect3DTests>(config));
 
             AddOption("Grid tests", () => BenchmarkRunner.Run<GridTests>(config));
 
