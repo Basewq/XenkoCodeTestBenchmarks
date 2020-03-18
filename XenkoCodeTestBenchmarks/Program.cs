@@ -42,6 +42,8 @@ namespace XenkoCodeTestBenchmarks
             AddOption("StreamingManager tests", () => BenchmarkRunner.Run<StreamingManagerTests>(config));
             AddOption("PhysicsDebugShapeMaterial tests", () => BenchmarkRunner.Run<PhysicsDebugShapeMaterialTests>(config));
 
+            AddOption("Grid tests", () => BenchmarkRunner.Run<GridTests>(config));
+
             bool isRunning = true;
             while (isRunning)
             {
