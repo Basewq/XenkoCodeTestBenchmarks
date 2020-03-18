@@ -23,6 +23,7 @@ namespace XenkoCodeTestBenchmarks
             var options = new List<(string code, string desc, Func<Summary[]> benchmark)>();
             AddCodedOption("A", "[A]ll", () => BenchmarkRunner.Run(typeof(Program).Assembly, config));
             AddOption("Matrix tests", () => BenchmarkRunner.Run<MatrixTests>(config));
+            AddOption("Matrix tests 2", () => BenchmarkRunner.Run<MatrixTests2>(config));
             AddOption("BoundingFrustum tests", () => BenchmarkRunner.Run<BoundingFrustumTests>(config));
             AddOption("Canvas tests", () => BenchmarkRunner.Run<CanvasTests>(config));
 
