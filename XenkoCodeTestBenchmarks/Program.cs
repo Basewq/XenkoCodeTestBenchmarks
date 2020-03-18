@@ -26,8 +26,11 @@ namespace XenkoCodeTestBenchmarks
             AddOption("BoundingFrustum tests", () => BenchmarkRunner.Run<BoundingFrustumTests>(config));
             AddOption("Canvas tests", () => BenchmarkRunner.Run<CanvasTests>(config));
 
+            AddOption("ColorConstructor tests", () => BenchmarkRunner.Run<ColorConstructorTests>(config));
+
             AddOption("Color3Constructor tests", () => BenchmarkRunner.Run<Color3ConstructorTests>(config));
             AddOption("Color3Copy tests", () => BenchmarkRunner.Run<Color3CopyTests>(config));
+            AddOption("Color4Constructor tests", () => BenchmarkRunner.Run<Color4ConstructorTests>(config));
 
             AddOption("Vector3Constructor tests", () => BenchmarkRunner.Run<Vector3ConstructorTests>(config));
             AddOption("Vector4Constructor tests", () => BenchmarkRunner.Run<Vector4ConstructorTests>(config));
