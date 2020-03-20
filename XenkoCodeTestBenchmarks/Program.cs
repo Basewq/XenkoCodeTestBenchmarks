@@ -36,6 +36,8 @@ namespace XenkoCodeTestBenchmarks
             AddOption("Vector3Constructor tests", () => BenchmarkRunner.Run<Vector3ConstructorTests>(config));
             AddOption("Vector4Constructor tests", () => BenchmarkRunner.Run<Vector4ConstructorTests>(config));
 
+            AddOption("VectorLength tests", () => BenchmarkRunner.Run<VectorLengthTests>(config));
+
             AddOption("LightStreak tests", () => BenchmarkRunner.Run<LightStreakTests>(config));
             AddOption("ModelNestedForLoopAccess tests", () => BenchmarkRunner.Run<ModelNestedForLoopAccessTests>(config));
 
