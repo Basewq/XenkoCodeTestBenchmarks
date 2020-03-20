@@ -27,7 +27,7 @@ namespace XenkoCodeTestBenchmarks.UIPanels
         /// <summary>
         /// A list use to make a copy of the star definition and then make a modification on this list.
         /// </summary>
-        private readonly FastList<StripDefinition> starDefinitionsCopy = new FastList<StripDefinition>();
+        private readonly List<StripDefinition> starDefinitionsCopy = new List<StripDefinition>();
 
         /// <summary>
         /// The list of the star definitions of an element sorted by increasing minimum size wrt their star value
@@ -526,8 +526,13 @@ namespace XenkoCodeTestBenchmarks.UIPanels
                     oneStarSpace = spaceRemainingForStarStrips / starValuesSum;
 
                     // remove definitions of star strip that will remain saturated until the end of the process from the to-measure list
-                    foreach (var definition in strimList)
-                        starDefinitionsCopy.Remove(definition);
+                    for (int i = strimList.Count - 1; i >= 0; i--)
+                    {
+                        // faster to remove in reverse
+                        var definition = strimList[i];
+                        int removeIndex = starDefinitionsCopy.LastIndexOf(definition);
+                        starDefinitionsCopy.RemoveAt(removeIndex);
+                    }
                 }
                 // stops the process if either there is no saturated strip or no star-sized strip to measure anymore.
                 while ((maxBoundedStarDefinitions.Count != 0 || minBoundedStarDefinitions.Count != 0) && starDefinitionsCopy.Count != 0);
@@ -716,16 +721,6 @@ namespace XenkoCodeTestBenchmarks.UIPanels
         }
 
         private static float SumStripCurrentSize(List<StripDefinition> definitions)
-        {
-            var sum = 0f;
-            // ReSharper disable once LoopCanBeConvertedToQuery
-            foreach (var def in definitions) // do not use linq to avoid allocations
-                sum += def.ActualSize;
-
-            return sum;
-        }
-
-        private static float SumStripCurrentSize(FastList<StripDefinition> definitions)
         {
             var sum = 0f;
             // ReSharper disable once LoopCanBeConvertedToQuery
