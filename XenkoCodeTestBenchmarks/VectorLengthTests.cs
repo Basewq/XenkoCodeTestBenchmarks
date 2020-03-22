@@ -59,6 +59,23 @@ namespace XenkoCodeTestBenchmarks
         }
 
         [Benchmark]
+        public float Vector2_LengthSquaredVsZeroTolerance()
+        {
+            float sum = 0;
+            for (int ii = 0; ii < 3; ii++)
+                for (int i = 0; i < data2.Length; i++)
+                {
+                    // ----- Test
+                    if (data2[i].LengthSquared() < MathUtil.ZeroTolerance)
+                    {
+                        sum += 1;
+                    }
+                    // ----- End Test
+                }
+            return sum;
+        }
+
+        [Benchmark]
         public float Vector3_LengthVsZeroTolerance()
         {
             float sum = 0;
@@ -84,6 +101,23 @@ namespace XenkoCodeTestBenchmarks
                 {
                     // ----- Test
                     if (data3[i].LengthSquared() < ZeroToleranceSquared)
+                    {
+                        sum += 1;
+                    }
+                    // ----- End Test
+                }
+            return sum;
+        }
+
+        [Benchmark]
+        public float Vector3_LengthSquaredVsZeroTolerance()
+        {
+            float sum = 0;
+            for (int ii = 0; ii < 3; ii++)
+                for (int i = 0; i < data3.Length; i++)
+                {
+                    // ----- Test
+                    if (data3[i].LengthSquared() < MathUtil.ZeroTolerance)
                     {
                         sum += 1;
                     }
