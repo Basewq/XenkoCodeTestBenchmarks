@@ -129,6 +129,36 @@ namespace XenkoCodeTestBenchmarks
             return sum;
         }
 
+        [Benchmark]
+        public int ProcessLights_PopulateLightIndicesReverseRemoveAt()
+        {
+            int sum = 0;
+            for (int ii = 0; ii < data.Length; ii++)
+            {
+                // First, evaluate how many any which light we want to render (store them in selectedLightIndices)
+                selectedLightIndices.Clear();
+
+                var parameters = data[ii];
+                // ----- Test
+                for (int i = parameters.LightIndices.Count - 1; i >= 0; i--)
+                {
+                    int index = parameters.LightIndices[i];
+                    var renderLight = parameters.LightCollection[index];
+
+                    // Check if there might be a renderer that supports shadows instead (in that case skip the light)
+                    if (CanRenderLight(renderLight, parameters)) // If the light projects a texture (we check for this because otherwise this renderer would "steal" the light from the spot light renderer which handle texture projection):    // TODO: Also check for texture projection renderer?
+                    {
+                        selectedLightIndices.Add(index);
+                        parameters.LightIndices.RemoveAt(i);
+                    }
+                }
+
+                // ----- End Test
+                sum += selectedLightIndices.Count;
+            }
+            return sum;
+        }
+
         private static bool CanRenderLight(RenderLight renderLight, LightGroupRendererBase.ProcessLightsParameters parameters)
         {
             // Just to do some minor fake work, but ensure this is true.
