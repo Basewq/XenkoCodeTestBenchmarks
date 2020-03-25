@@ -751,16 +751,6 @@ namespace XenkoCodeTestBenchmarks.UIPanels
             return sum;
         }
 
-        private static float SumValues(FastList<StripDefinition> definitions) // use FastList instead of IEnumerable in  order to avoid boxing in "foreach"
-        {
-            var sum = 0f;
-            // ReSharper disable once LoopCanBeConvertedToQuery
-            foreach (var def in definitions) // do not use linq to avoid allocations
-                sum += def.SizeValue;
-
-            return sum;
-        }
-
         private static void GetDistanceToSurroundingAnchors(List<float> stripPosition, float position, out Vector2 distances)
         {
             if (stripPosition.Count < 2)
