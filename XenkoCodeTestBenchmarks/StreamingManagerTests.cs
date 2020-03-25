@@ -1,4 +1,5 @@
 ﻿using BenchmarkDotNet.Attributes;
+using System;
 using System.Collections.Generic;
 
 namespace XenkoCodeTestBenchmarks
@@ -74,6 +75,30 @@ namespace XenkoCodeTestBenchmarks
                     resource.FlushSync();
                     activeStreaming.RemoveAt(i);
                 }
+                // ----- End Test
+                sum += activeStreaming.Count;
+            }
+            return sum;
+        }
+
+        private static readonly Predicate<FakeStreamableResource> WhenTaskIsCompletedAndFlushed = resource =>
+        {
+            if (resource.IsTaskActive)
+                return false;
+
+            resource.FlushSync();
+            return true;
+        };
+
+        [Benchmark]
+        public float FlushSync_RemoveWithPredicate()
+        {
+            float sum = 0;
+            for (int ii = 0; ii < activeStreamings.Length; ii++)
+            {
+                var activeStreaming = activeStreamings[ii];
+                // ----- Test
+                activeStreaming.RemoveAll(WhenTaskIsCompletedAndFlushed);
                 // ----- End Test
                 sum += activeStreaming.Count;
             }
